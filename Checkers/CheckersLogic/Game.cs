@@ -100,7 +100,7 @@
         private Player CheckWinner()
         {
             if (!Players[0].HasPiecesLeft()) { return Players[1]; }
-            if (!Players[1].HasPiecesLeft()) { return Players[2]; }
+            if (!Players[1].HasPiecesLeft()) { return Players[0]; }
             if (MoveablePieces.Count == 0)
             {
                 if (CurrentPlayer == Players[0]) { return Players[1]; }

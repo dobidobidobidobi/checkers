@@ -20,3 +20,15 @@ C:\Users\jakdo\source\repos\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogi
 C:\Users\jakdo\source\repos\Checkers\CheckersLogic\obj\Debug\net8.0\refint\CheckersLogic.dll
 C:\Users\jakdo\source\repos\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.pdb
 C:\Users\jakdo\source\repos\Checkers\CheckersLogic\obj\Debug\net8.0\ref\CheckersLogic.dll
+C:\program1\checkers\Checkers\CheckersLogic\bin\Debug\net8.0\CheckersLogic.deps.json
+C:\program1\checkers\Checkers\CheckersLogic\bin\Debug\net8.0\CheckersLogic.dll
+C:\program1\checkers\Checkers\CheckersLogic\bin\Debug\net8.0\CheckersLogic.pdb
+C:\program1\checkers\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\program1\checkers\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.AssemblyInfoInputs.cache
+C:\program1\checkers\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.AssemblyInfo.cs
+C:\program1\checkers\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.csproj.CoreCompileInputs.cache
+C:\program1\checkers\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.sourcelink.json
+C:\program1\checkers\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.dll
+C:\program1\checkers\Checkers\CheckersLogic\obj\Debug\net8.0\refint\CheckersLogic.dll
+C:\program1\checkers\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.pdb
+C:\program1\checkers\Checkers\CheckersLogic\obj\Debug\net8.0\ref\CheckersLogic.dll

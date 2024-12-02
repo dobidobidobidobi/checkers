@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\Checkers.csproj": {}
+    "C:\\program1\\checkers\\Checkers\\Checkers\\Checkers.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\CheckersLogic.csproj": {
+    "C:\\program1\\checkers\\Checkers\\CheckersLogic\\CheckersLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\CheckersLogic.csproj",
+        "projectUniqueName": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\CheckersLogic.csproj",
         "projectName": "CheckersLogic",
-        "projectPath": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\CheckersLogic.csproj",
-        "packagesPath": "C:\\Users\\jakdo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\obj\\",
+        "projectPath": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\CheckersLogic.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jakdo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,9 +38,8 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+          "auditMode": "direct"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -65,25 +60,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\Checkers.csproj": {
+    "C:\\program1\\checkers\\Checkers\\Checkers\\Checkers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\Checkers.csproj",
+        "projectUniqueName": "C:\\program1\\checkers\\Checkers\\Checkers\\Checkers.csproj",
         "projectName": "Checkers",
-        "projectPath": "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\Checkers.csproj",
-        "packagesPath": "C:\\Users\\jakdo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\obj\\",
+        "projectPath": "C:\\program1\\checkers\\Checkers\\Checkers\\Checkers.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\program1\\checkers\\Checkers\\Checkers\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jakdo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,8 +88,8 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\CheckersLogic.csproj": {
-                "projectPath": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\CheckersLogic.csproj"
+              "C:\\program1\\checkers\\Checkers\\CheckersLogic\\CheckersLogic.csproj": {
+                "projectPath": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\CheckersLogic.csproj"
               }
             }
           }
@@ -111,9 +102,8 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+          "auditMode": "direct"
+        }
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -137,7 +127,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

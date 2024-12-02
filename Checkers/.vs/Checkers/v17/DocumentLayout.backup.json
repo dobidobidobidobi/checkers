@@ -1,53 +1,53 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jakdo\\source\\repos\\Checkers\\",
+  "WorkspaceRootPath": "C:\\program1\\checkers\\Checkers\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|c:\\users\\jakdo\\source\\repos\\checkers\\checkers\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|solutionrelative:checkers\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|c:\\users\\jakdo\\source\\repos\\checkers\\checkers\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|solutionrelative:checkers\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\users\\jakdo\\source\\repos\\checkers\\checkerslogic\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\users\\jakdo\\source\\repos\\checkers\\checkerslogic\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\users\\jakdo\\source\\repos\\checkers\\checkerslogic\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\users\\jakdo\\source\\repos\\checkers\\checkerslogic\\color.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|c:\\program1\\checkers\\checkers\\checkers\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|solutionrelative:checkers\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|c:\\program1\\checkers\\checkers\\checkers\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|solutionrelative:checkers\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\color.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\color.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\users\\jakdo\\source\\repos\\checkers\\checkerslogic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|c:\\users\\jakdo\\source\\repos\\checkers\\checkers\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|c:\\program1\\checkers\\checkers\\checkers\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|solutionrelative:checkers\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\users\\jakdo\\source\\repos\\checkers\\checkerslogic\\zprovozneni assembly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\zprovozneni assembly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\zprovozneni assembly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\users\\jakdo\\source\\repos\\checkers\\checkerslogic\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|c:\\users\\jakdo\\source\\repos\\checkers\\checkers\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|c:\\program1\\checkers\\checkers\\checkers\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|solutionrelative:checkers\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|c:\\users\\jakdo\\source\\repos\\checkers\\checkers\\images.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|c:\\program1\\checkers\\checkers\\checkers\\images.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|solutionrelative:checkers\\images.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,11 +70,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Piece.cs",
-              "DocumentMoniker": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Piece.cs",
+              "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Piece.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Piece.cs",
-              "ToolTip": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Piece.cs",
+              "ToolTip": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Piece.cs",
               "RelativeToolTip": "CheckersLogic\\Piece.cs",
               "ViewState": "AgIAAIQAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -82,11 +82,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Move.cs",
-              "DocumentMoniker": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Move.cs",
+              "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Move.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Move.cs",
-              "ToolTip": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Move.cs",
+              "ToolTip": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Move.cs",
               "RelativeToolTip": "CheckersLogic\\Move.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -96,9 +96,9 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Color.cs",
-              "DocumentMoniker": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Color.cs",
+              "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Color.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Color.cs",
-              "ToolTip": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Color.cs",
+              "ToolTip": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Color.cs",
               "RelativeToolTip": "CheckersLogic\\Color.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -106,24 +106,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\Checkers\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Checkers\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\MainWindow.xaml",
+              "ToolTip": "C:\\program1\\checkers\\Checkers\\Checkers\\MainWindow.xaml",
               "RelativeToolTip": "Checkers\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-01T20:51:43.297Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\Checkers\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Checkers\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\program1\\checkers\\Checkers\\Checkers\\MainWindow.xaml.cs",
               "RelativeToolTip": "Checkers\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAPYAAAAAAAAAAAAqwAgBAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAA6wBwAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-01T16:37:26.287Z",
               "EditorCaption": ""
@@ -132,9 +132,9 @@
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "Images.cs",
-              "DocumentMoniker": "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\Images.cs",
+              "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\Checkers\\Images.cs",
               "RelativeDocumentMoniker": "Checkers\\Images.cs",
-              "ToolTip": "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\Images.cs",
+              "ToolTip": "C:\\program1\\checkers\\Checkers\\Checkers\\Images.cs",
               "RelativeToolTip": "Checkers\\Images.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -144,9 +144,9 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\Checkers\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "Checkers\\AssemblyInfo.cs",
-              "ToolTip": "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\AssemblyInfo.cs",
+              "ToolTip": "C:\\program1\\checkers\\Checkers\\Checkers\\AssemblyInfo.cs",
               "RelativeToolTip": "Checkers\\AssemblyInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -156,9 +156,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Player.cs",
+              "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Player.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Player.cs",
-              "ToolTip": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Player.cs",
+              "ToolTip": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Player.cs",
               "RelativeToolTip": "CheckersLogic\\Player.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -168,9 +168,9 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Board.cs",
-              "DocumentMoniker": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Board.cs",
+              "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Board.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Board.cs",
-              "ToolTip": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Board.cs",
+              "ToolTip": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Board.cs",
               "RelativeToolTip": "CheckersLogic\\Board.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -178,23 +178,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Game.cs",
-              "DocumentMoniker": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Game.cs",
+              "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Game.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Game.cs",
-              "ToolTip": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Game.cs",
+              "ToolTip": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Game.cs",
               "RelativeToolTip": "CheckersLogic\\Game.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAAAJEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAGYAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T18:46:38.835Z"
+              "WhenOpened": "2024-12-01T18:46:38.835Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Zprovozneni Assembly.cs",
-              "DocumentMoniker": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Zprovozneni Assembly.cs",
+              "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Zprovozneni Assembly.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Zprovozneni Assembly.cs",
-              "ToolTip": "C:\\Users\\jakdo\\source\\repos\\Checkers\\CheckersLogic\\Zprovozneni Assembly.cs",
+              "ToolTip": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Zprovozneni Assembly.cs",
               "RelativeToolTip": "CheckersLogic\\Zprovozneni Assembly.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -204,9 +205,9 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\App.xaml",
+              "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\Checkers\\App.xaml",
               "RelativeDocumentMoniker": "Checkers\\App.xaml",
-              "ToolTip": "C:\\Users\\jakdo\\source\\repos\\Checkers\\Checkers\\App.xaml",
+              "ToolTip": "C:\\program1\\checkers\\Checkers\\Checkers\\App.xaml",
               "RelativeToolTip": "Checkers\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-02T09:29:09.743Z"
