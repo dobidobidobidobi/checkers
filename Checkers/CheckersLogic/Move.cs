@@ -1,117 +1,18 @@
 ﻿namespace CheckersLogic
 {
-    class Move
+    //pro minimax
+    struct Move
     {
-        public Piece Piece {  get; }
-        public List<Position> Positions;
-        bool IsCapture;
+        public int From {  get; private set; }
+        public int To {  get; private set; }
+        public List<int> PiecesCaptured {  get; private set; }
 
-        Move(Piece piece, bool isCapture, Position position, Board curentBoard)
+        public Move(int from, int to, List<int> piecesCaptured)
         {
-            Piece = piece;
-            IsCapture = isCapture;
-            Positions = new List<Position>();
-            Positions.Add(position);
-
-            //hledá další možné capture
-            if (IsCapture)
-            {
-                
-                //když se takto přidá další pozice tak ji automaticky projede
-                for (int i = 0; i < Positions.Count(); i++)
-                {
-                    int row = Positions[i].Row;
-                    int column = Positions[i].Column;
-
-                }
-                     
-            }
-
-            
+            from = From;
+            to = To;
+            PiecesCaptured = piecesCaptured;
         }
-
-        private List<Position> CheckMoveMan(Color color, Position position, Board currentBoard)
-        {
-            int row = position.Row;
-            int column = position.Column;
-            var moves = new List<Position>();
-          
-            if ((color == Color.White) && (row > 1))
-            {
-                if
-                (
-                    (column > 1)
-                    &&
-                    !(currentBoard.GetSquare(new Position(row-1, column-1)).IsEmpty())
-                    &&
-                    (currentBoard.GetSquare(new Position(row - 1, column - 1)).OccupiedBy.GetColor()==Color.Black)
-                    &&
-                    (currentBoard.GetSquare(new Position(row - 2, column - 2)).IsEmpty())
-                )
-
-                {
-                    moves.Add(new Position(row - 2, column - 2));
-                }
-                if
-                (
-                    (column > 1)
-                    &&
-                    !(currentBoard.GetSquare(new Position(row - 1, column + 1)).IsEmpty())
-                    &&
-                    (currentBoard.GetSquare(new Position(row - 1, column + 1)).OccupiedBy.GetColor() == Color.Black)
-                    &&
-                    (currentBoard.GetSquare(new Position(row - 2, column + 2)).IsEmpty())
-                )
-                {
-                    moves.Add(new Position(row - 2, column + 2));
-                }
-
-            }
-
-            if ((color == Color.Black) && (row < 6))
-            {
-                if
-                (
-                    (column > 1)
-                    &&
-                    !(currentBoard.GetSquare(new Position(row + 1, column - 1)).IsEmpty())
-                    &&
-                    (currentBoard.GetSquare(new Position(row + 1, column - 1)).OccupiedBy.GetColor() == Color.Black)
-                    &&
-                    (currentBoard.GetSquare(new Position(row + 2, column - 2)).IsEmpty())
-                )
-
-                {
-                    moves.Add(new Position(row + 2, column - 2));
-                }
-                if
-                (
-                    (column > 1)
-                    &&
-                    !(currentBoard.GetSquare(new Position(row + 1, column + 1)).IsEmpty())
-                    &&
-                    (currentBoard.GetSquare(new Position(row + 1, column + 1)).OccupiedBy.GetColor() == Color.Black)
-                    &&
-                    (currentBoard.GetSquare(new Position(row + 2, column + 2)).IsEmpty())
-                )
-                {
-                    moves.Add(new Position(row + 2, column + 2));
-                }
-
-            }
-            
-            return moves;
-        }
-
-
-        private List<Position> CheckMoveKing(Color color, Position position, Board currentBoard)
-        {
-            return null;
-        }
-
-
-       
-
 
     }
 }
