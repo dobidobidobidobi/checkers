@@ -45,6 +45,9 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             
             <Button x:Name="ResetButton" MinHeight="70" MaxHeight="700"
@@ -55,7 +58,23 @@
             <Button x:Name="InvertBoard" Grid.Row="1" MinHeight="70" MaxHeight="700"
                     Background="#222222" Foreground="Beige"
                     Click="InvertBoard_Click" Margin="8">Invert Board
-            </Button> 
+            </Button>
+
+            <Button x:Name="PvpMode" Grid.Row="2" MinHeight="70" MaxHeight="700"
+                    Background="#4CBB17" Foreground="Beige"
+                     Margin="8" Click="PvpMode_Click">PvP Mode
+            </Button>
+
+
+            <Button x:Name="PveMode" Grid.Row="3" MinHeight="70" MaxHeight="700"
+                    Background="Red" Foreground="Beige"
+                     Margin="8" Click="PveMode_Click">PvE Mode
+            </Button>
+
+            <Button x:Name="EveMode" Grid.Row="4" MinHeight="70" MaxHeight="700"
+                    Background="Red" Foreground="Beige"
+                     Margin="8" Click="EveMode_Click">EvE Mode
+            </Button>
 
         </Grid>
 
