@@ -36,12 +36,6 @@
             else { CurrentPlayer = Players[0]; }
         }
 
-        public Color? CheckEnd()
-        {
-            if (!Players[0].HasPiecesLeft()) { return Color.Black; }
-            else if (!Players[1].HasPiecesLeft()) { return Color.White; }
-            return null;
-        }
 
         public void ResetGame()
         {
@@ -143,6 +137,35 @@
 
             CheckKingship(piece);
             Winner = CheckWinner();           
+        }
+
+        public void MakeEngineMove(int depth)
+        {
+            Move move = FindBestMove.Minimax(this, depth);
+            
+            foreach (int pos in move.PiecesCaptured)
+            {
+                Position position = BitboardToPosition(pos);
+                Capture(Board.Grid[position.Row, position.Column].OccupiedBy);
+            }
+            Position from = BitboardToPosition(move.From);
+            Position to = BitboardToPosition(move.To);
+
+            Board.MovePiece(from, to);
+
+            if (CurrentPlayer == Players[0]) { CurrentPlayer = Players[1]; }
+            else { CurrentPlayer = Players[0]; }
+            MoveablePieces = PiecesThatCanMove();
+            Winner = CheckWinner();
+            CheckKingship(Board.Grid[to.Row, to.Column].OccupiedBy);
+        }
+
+        private Position BitboardToPosition(int bit)
+        {
+            int row = (int)((63 - bit) / 8);
+            int column = 7 - (bit % 8);
+
+            return new Position(row, column);
         }
     }
 }

@@ -30,17 +30,26 @@ namespace Checkers
 
         private bool boardIsInverted;
 
+        private Mode mode;
+
         private Piece? pieceSelected = null;
+
+        private bool engineCalculationInProgress;
+
+        private int engineDepth;
         public MainWindow()
 
         {
             InitializeComponent();
+            mode = Mode.PvP;
             InitializeBoard();
             game = new Game();
             DrawBoard(game.Board);
             highlight = GetHighlight();
             InitializeHighlights();
             boardIsInverted = false;
+            engineCalculationInProgress = false;
+            engineDepth = 1;
         }
 
 
@@ -162,16 +171,65 @@ namespace Checkers
 
         private void CheckerBoard_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            HideHighlights();
             Point point = e.GetPosition(CheckerBoard);
             Position positionClicked = ToSquarePosition(point);
             if (game.Winner == null)
+            {
+                if (mode == Mode.PvP)
+                {
+                    PvpAction(positionClicked);
+                }
+
+                else if (mode == Mode.PvE)
+                {
+                    PveAction(positionClicked);
+                }
+            }
+            if (game.Winner != null) { ShowWinner(game.Winner); }
+        }
+
+        private void PvpAction(Position positionClicked)
+        {
+            HideHighlights();
+          
+            if ((pieceSelected != null) && (pieceSelected.AvailableMoves.Contains(positionClicked)))
+            {
+                game.MakeMove(pieceSelected, positionClicked);
+                DrawBoard(game.Board);
+                pieceSelected = null;
+            }
+
+            else
+            {
+
+                pieceSelected = game.Board.Grid[positionClicked.Row, positionClicked.Column].OccupiedBy;
+
+                if ((pieceSelected != null) && (game.MoveablePieces.Contains(pieceSelected)))
+                {
+                    ShowHighlights(pieceSelected);
+                }
+                else { pieceSelected = null; }
+            }       
+
+
+        }
+
+        private void PveAction(Position positionClicked)
+        {
+            HideHighlights();
+            if (!engineCalculationInProgress)
             {
                 if ((pieceSelected != null) && (pieceSelected.AvailableMoves.Contains(positionClicked)))
                 {
                     game.MakeMove(pieceSelected, positionClicked);
                     DrawBoard(game.Board);
                     pieceSelected = null;
+                    if (game.Winner == null) 
+                    {
+                        game.MakeEngineMove(engineDepth);
+                        DrawBoard(game.Board);
+                    }
+
                 }
 
                 else
@@ -185,11 +243,10 @@ namespace Checkers
                     }
                     else { pieceSelected = null; }
                 }
-
-                if (game.Winner != null) { ShowWinner(game.Winner); }
             }
         }
-        
+
+
         private Position ToSquarePosition(Point point)
         {
             double squaresize = CheckerBoard.Width / 8;
@@ -263,6 +320,31 @@ namespace Checkers
                 ConvertToHighlight(highlight, highlights[7 - position.Row, 7 -  position.Column]);
             }
             
+        }
+
+        private void PvpMode_Click(object sender, RoutedEventArgs e)
+        {
+            mode = Mode.PvP;
+            PvpMode.Background = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#4CBB17"));
+            PveMode.Background = Brushes.Red;
+            EveMode.Background = Brushes.Red;
+
+        }
+
+        private void PveMode_Click(object sender, RoutedEventArgs e)
+        {
+            mode = Mode.PvE;
+            PveMode.Background = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#4CBB17"));
+            PvpMode.Background = Brushes.Red;
+            EveMode.Background = Brushes.Red;
+        }
+
+        private void EveMode_Click(object sender, RoutedEventArgs e)
+        {
+            mode = Mode.EvE;
+            EveMode.Background = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#4CBB17"));
+            PveMode.Background = Brushes.Red;
+            PvpMode.Background = Brushes.Red;
         }
     }
 }

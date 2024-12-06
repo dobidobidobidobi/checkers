@@ -7,10 +7,10 @@
         public int To {  get; private set; }
         public List<int> PiecesCaptured {  get; private set; }
 
-        public Move(int from, int to, List<int> piecesCaptured)
+        public Move(int from, int to, List<int>? piecesCaptured)
         {
-            from = From;
-            to = To;
+            From = from;
+            To = to;
             PiecesCaptured = piecesCaptured;
         }
 
