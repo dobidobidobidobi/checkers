@@ -92,34 +92,50 @@ namespace CheckersLogic
 
         private static List<Move> GetMoves(bool maxingPlayer, ulong blackPieces, ulong whitePieces, ulong kings)
         {
-            if (maxingPlayer) { return WhiteMoves(maxingPlayer, blackPieces, whitePieces, kings);  }
+            if (maxingPlayer) { return WhiteMoves(maxingPlayer, blackPieces, whitePieces, kings); }
             return BlackMoves(maxingPlayer, blackPieces, whitePieces, kings);
         }
 
         private static List<Move> WhiteMoves(bool maxingPlayer, ulong blackPieces, ulong whitePieces, ulong kings)
         {
-            List<Move> result = WhiteCaptureMoves(maxingPlayer, blackPieces, whitePieces, kings);   
+            List<Move> result = WhiteCaptureMoves(maxingPlayer, blackPieces, whitePieces, kings);
             if (result.Count > 0) { return result; }
 
             result = WhiteStandardMoves(maxingPlayer, blackPieces, whitePieces, kings);
 
             return result;
         }
-
         private static List<Move> WhiteCaptureMoves(bool maxingPlayer, ulong blackPieces, ulong whitePieces, ulong kings)
         {
-            List<Move> captures = new List<Move>();
+            ulong emptySquares = GetEmptySquares(blackPieces, whitePieces);
+            ulong whiteKings = whitePieces & kings;
+            ulong whiteStandardPieces = whitePieces - whiteKings;
+            List<Move> captures = KingCaptureMoves(whiteKings, blackPieces, emptySquares);
+
+            captures.AddRange(LeftUpwardsCaptures(whiteStandardPieces, blackPieces, emptySquares));
+            captures.AddRange(RightUpwardsCaptures(whiteStandardPieces, blackPieces, emptySquares));
+
             return captures;
+        }
+        private static List<Move> KingCaptureMoves(ulong kings, ulong oposingPieces, ulong emptySquares)
+        {
+            List<Move > captures = LeftDownwardsCaptures(kings, oposingPieces, emptySquares);
+            captures.AddRange(LeftUpwardsCaptures(kings, oposingPieces, emptySquares));
+            captures.AddRange(RightUpwardsCaptures(kings, oposingPieces, emptySquares));
+            captures.AddRange(RightDownwardsCaptures(kings, oposingPieces, emptySquares));
+
+            return captures;
+
         }
 
         private static List<Move> WhiteStandardMoves(bool maxingPlayer, ulong blackPieces, ulong whitePieces, ulong kings)
         {
-            List<Move> moves = new List<Move>();
+            List<Move> moves = KingStandardMoves(maxingPlayer, blackPieces, whitePieces, kings);
             ulong emptySquares = GetEmptySquares(blackPieces, whitePieces);
             ulong whiteKings = whitePieces & kings;
             ulong whiteStandardPieces = whitePieces - whiteKings;
 
-            moves = LeftUpwardsStandardMoves(whiteStandardPieces, emptySquares);
+            moves.AddRange(LeftUpwardsStandardMoves(whiteStandardPieces, emptySquares));
             moves.AddRange(RightUpwardsStandardMoves(whiteStandardPieces, emptySquares));
 
             return moves;
@@ -128,19 +144,146 @@ namespace CheckersLogic
         private static List<Move> KingStandardMoves(bool maxingPlayer, ulong blackPieces, ulong whitePieces, ulong kings)
         {
             List<Move> kingMoves = new List<Move>();
+            ulong emptySquares = GetEmptySquares(blackPieces, whitePieces);
+
+            if (maxingPlayer) { kingMoves = AllDirectionStandardMoves(kings & whitePieces, emptySquares); }
+            else { kingMoves = AllDirectionStandardMoves(kings & blackPieces, emptySquares); }
+
             return kingMoves;
+        }
+
+        private static List<Move> AllDirectionStandardMoves(ulong kings, ulong emptySquares)
+        {
+            List<Move> kingMoves = new List<Move>();
+            kingMoves = LeftUpwardsStandardMoves(kings, emptySquares);
+            kingMoves.AddRange(LeftDownwardsStandardMoves(kings, emptySquares));
+            kingMoves.AddRange(RightDownwardsStandardMoves(kings, emptySquares));
+            kingMoves.AddRange(RightUpwardsStandardMoves(kings, emptySquares));
+
+            return kingMoves;
+        }
+
+        private static List<Move> BlackMoves(bool maxingPlayer, ulong blackPieces, ulong whitePieces, ulong kings)
+        {
+            List<Move> moves = BlackCaptureMoves(maxingPlayer, blackPieces, whitePieces, kings);
+            if (moves.Count > 0) { return moves; }
+
+            moves = BlackStandardMoves(maxingPlayer, blackPieces, whitePieces, kings);
+
+            return moves;
+        }
+
+        private static List<Move> BlackCaptureMoves(bool maxingPlayer, ulong blackPieces, ulong whitePieces, ulong kings)
+        {
+            ulong emptySquares = GetEmptySquares(blackPieces, whitePieces);
+            ulong blackKings = blackPieces & kings;
+            ulong blackStandardPieces = blackPieces - blackKings;
+
+            List<Move> captures = KingCaptureMoves(blackKings, whitePieces, emptySquares);
+
+            captures.AddRange(RightDownwardsCaptures(blackStandardPieces, whitePieces, emptySquares));
+            captures.AddRange(LeftDownwardsCaptures(blackStandardPieces, whitePieces, emptySquares));
+
+            return captures;
+        }
+
+        private static List<Move> BlackStandardMoves(bool maxingPlayer, ulong blackPieces, ulong whitePieces, ulong kings)
+        {
+            List<Move> moves = KingStandardMoves(maxingPlayer, blackPieces, whitePieces, kings);
+            ulong emptySquares = GetEmptySquares(blackPieces, whitePieces);
+            ulong blackKings = blackPieces & kings;
+            ulong blackStandardPieces = blackPieces - blackKings;
+
+            moves.AddRange(RightDownwardsStandardMoves(blackStandardPieces, emptySquares));
+            moves.AddRange(LeftDownwardsStandardMoves(blackStandardPieces, emptySquares));
+
+            return moves;
+        }
+
+        private static ulong GetEmptySquares(ulong blackPieces, ulong whitePieces)
+        {
+            //vsechny bila policka
+            ulong illegalSquares = 12273903644374837845;
+
+            ulong emptySquares = ~(blackPieces | whitePieces);
+            emptySquares -= illegalSquares;
+            return emptySquares;
+        }
+
+        private static List<Move> LeftDownwardsCaptures(ulong pieces, ulong oposingPieces, ulong emptySquares)
+        {
+            ulong leftDownwardsCaptures = (((pieces >> 7) & oposingPieces) >> 7) & emptySquares;
+            List<Move> moves = new List<Move>();
+            for (int i = 0; i < 64; i++)
+            {
+                if ((leftDownwardsCaptures & 1) == 1)
+                {
+                    moves.Add(new Move(i + 14, i, new List<int> { i + 7 }));
+                }
+                leftDownwardsCaptures >>= 1;
+            }
+
+            return moves;
+        }
+
+        private static List<Move> RightDownwardsCaptures(ulong pieces, ulong oposingPieces, ulong emptySquares)
+        {
+            ulong leftDownwardsCaptures = (((pieces >> 9) & oposingPieces) >> 9) & emptySquares;
+            List<Move> moves = new List<Move>();
+            for (int i = 0; i < 64; i++)
+            {
+                if ((leftDownwardsCaptures & 1) == 1)
+                {
+                    moves.Add(new Move(i + 18, i, new List<int> { i + 9 }));
+                }
+                leftDownwardsCaptures >>= 1;
+            }
+
+            return moves;
+        }
+
+        private static List<Move> LeftUpwardsCaptures(ulong pieces, ulong oposingPieces, ulong emptySquares)
+        {
+            ulong leftDownwardsCaptures = (((pieces << 9) & oposingPieces) << 9) & emptySquares;
+            List<Move> moves = new List<Move>();
+            for (int i = 0; i < 64; i++)
+            {
+                if ((leftDownwardsCaptures & 1) == 1)
+                {
+                    moves.Add(new Move(i - 18, i, new List<int> { i - 9 }));
+                }
+                leftDownwardsCaptures >>= 1;
+            }
+
+            return moves;
+        }
+
+        private static List<Move> RightUpwardsCaptures(ulong pieces, ulong oposingPieces, ulong emptySquares)
+        {
+            ulong leftDownwardsCaptures = (((pieces << 7) & oposingPieces) << 7) & emptySquares;
+            List<Move> moves = new List<Move>();
+            for (int i = 0; i < 64; i++)
+            {
+                if ((leftDownwardsCaptures & 1) == 1)
+                {
+                    moves.Add(new Move(i - 14, i, new List<int> { i - 7 }));
+                }
+                leftDownwardsCaptures >>= 1;
+            }
+
+            return moves;
         }
 
         private static List<Move> LeftUpwardsStandardMoves(ulong pieces, ulong emptySquares)
         {
             ulong leftUpwardsMoves = (pieces << 9) & emptySquares;
             List<Move> moves = new List<Move>();
-            
-            for (int i = 0; i < 64 ; i++)
+
+            for (int i = 0; i < 64; i++)
             {
                 if ((leftUpwardsMoves & 1) == 1)
                 {
-                    moves.Add(new Move(i - 9, i, new List<int>() ));
+                    moves.Add(new Move(i - 9, i, new List<int>()));
                 }
                 leftUpwardsMoves >>= 1;
             }
@@ -195,51 +338,27 @@ namespace CheckersLogic
                 }
                 leftUpwardsMoves >>= 1;
             }
-              
-            return moves;
-        }
-
-
-
-        private static List<Move> BlackMoves(bool maxingPlayer, ulong blackPieces, ulong whitePieces, ulong kings)
-        {
-            List<Move> moves = BlackCaptureMoves(maxingPlayer, blackPieces, whitePieces, kings);
-            if (moves.Count > 0) { return moves; }
-
-            moves = BlackStandardMoves(maxingPlayer, blackPieces, whitePieces, kings);
 
             return moves;
         }
 
-        private static List<Move> BlackCaptureMoves(bool maxingPlayer, ulong blackPieces, ulong whitePieces, ulong kings)
+        private static List<Move> SubsequentCaptures
+            (Move capture, bool maxingPlayer, bool king, ulong oposingPieces, ulong emptySquares)
         {
             List<Move> moves = new List<Move>();
+            if (king)
+            {
+                if ((((( 1UL << capture.To + 9) & oposingPieces) << 9) & emptySquares) != 0)
+                {
+                    Move submove = capture;
+                    submove.PiecesCaptured.Add(submove.To + 9);
+                    submove.To += 18;
+
+                }
+            }
 
             return moves;
-        }
-
-        private static List<Move> BlackStandardMoves(bool maxingPlayer, ulong blackPieces, ulong whitePieces, ulong kings)
-        {
-            List<Move> moves = new List<Move>();
-            ulong emptySquares = GetEmptySquares(blackPieces, whitePieces);
-            ulong blackKings = blackPieces & kings;
-            ulong blackStandardPieces = blackPieces - blackKings;
-
-            moves = RightDownwardsStandardMoves(blackStandardPieces, emptySquares);
-            moves.AddRange(LeftDownwardsStandardMoves(blackStandardPieces, emptySquares));
-
-            return moves;
-        }
-
-        private static ulong GetEmptySquares(ulong blackPieces, ulong whitePieces)
-        {
-            //vsechny bila policka
-            ulong illegalSquares = 12273903644374837845; 
-
-            ulong emptySquares = ~(blackPieces | whitePieces);
-            emptySquares -= illegalSquares;
-            return emptySquares;
         }
 
     }
-}
+}   

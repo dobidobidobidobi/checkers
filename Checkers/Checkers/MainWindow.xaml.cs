@@ -219,12 +219,14 @@ namespace Checkers
             HideHighlights();
             if (!engineCalculationInProgress)
             {
+                Player currentPlayer = game.CurrentPlayer;
+
                 if ((pieceSelected != null) && (pieceSelected.AvailableMoves.Contains(positionClicked)))
                 {
                     game.MakeMove(pieceSelected, positionClicked);
                     DrawBoard(game.Board);
                     pieceSelected = null;
-                    if (game.Winner == null) 
+                    if ((game.Winner == null) && (currentPlayer != game.CurrentPlayer))
                     {
                         game.MakeEngineMove(engineDepth);
                         DrawBoard(game.Board);
@@ -337,6 +339,8 @@ namespace Checkers
             PveMode.Background = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#4CBB17"));
             PvpMode.Background = Brushes.Red;
             EveMode.Background = Brushes.Red;
+            game.MakeEngineMove(engineDepth);
+            DrawBoard(game.Board);
         }
 
         private void EveMode_Click(object sender, RoutedEventArgs e)
