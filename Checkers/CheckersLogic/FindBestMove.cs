@@ -110,16 +110,28 @@ namespace CheckersLogic
             ulong emptySquares = GetEmptySquares(blackPieces, whitePieces);
             ulong whiteKings = whitePieces & kings;
             ulong whiteStandardPieces = whitePieces - whiteKings;
-            List<Move> captures = KingCaptureMoves(whiteKings, blackPieces, emptySquares);
-
+            List<Move> KingMoves = KingCaptureMoves(whiteKings, blackPieces, emptySquares);
+            List<Move> captures = new List<Move>();
             captures.AddRange(LeftUpwardsCaptures(whiteStandardPieces, blackPieces, emptySquares));
             captures.AddRange(RightUpwardsCaptures(whiteStandardPieces, blackPieces, emptySquares));
 
-            return captures;
+            List<Move> moves = new List<Move>();
+
+            foreach (Move move in KingMoves)
+            {
+                moves.AddRange(SubsequentCaptures(move, maxingPlayer, true,
+                    RemoveOposingPiece(blackPieces, move), RemoveAndAddEmptySquares(emptySquares, move)));
+            }
+            foreach (Move move in captures)
+            {
+                moves.AddRange(SubsequentCaptures(move, maxingPlayer, SubsuquentCapturesKingship(move, maxingPlayer),
+                    RemoveOposingPiece(blackPieces, move), RemoveAndAddEmptySquares(emptySquares, move)));
+            }
+            return moves;
         }
         private static List<Move> KingCaptureMoves(ulong kings, ulong oposingPieces, ulong emptySquares)
         {
-            List<Move > captures = LeftDownwardsCaptures(kings, oposingPieces, emptySquares);
+            List<Move> captures = LeftDownwardsCaptures(kings, oposingPieces, emptySquares);
             captures.AddRange(LeftUpwardsCaptures(kings, oposingPieces, emptySquares));
             captures.AddRange(RightUpwardsCaptures(kings, oposingPieces, emptySquares));
             captures.AddRange(RightDownwardsCaptures(kings, oposingPieces, emptySquares));
@@ -179,12 +191,24 @@ namespace CheckersLogic
             ulong blackKings = blackPieces & kings;
             ulong blackStandardPieces = blackPieces - blackKings;
 
-            List<Move> captures = KingCaptureMoves(blackKings, whitePieces, emptySquares);
-
+            List<Move> KingMoves = KingCaptureMoves(blackKings, whitePieces, emptySquares);
+            List<Move> captures = new List<Move>();
             captures.AddRange(RightDownwardsCaptures(blackStandardPieces, whitePieces, emptySquares));
             captures.AddRange(LeftDownwardsCaptures(blackStandardPieces, whitePieces, emptySquares));
+            
+            List<Move> moves = new List<Move>();
 
-            return captures;
+            foreach (Move move in KingMoves)
+            {
+                moves.AddRange(SubsequentCaptures(move, maxingPlayer, true,
+                    RemoveOposingPiece(whitePieces, move), RemoveAndAddEmptySquares(emptySquares, move)));
+            }
+            foreach (Move move in captures)
+            {
+                moves.AddRange(SubsequentCaptures(move, maxingPlayer, SubsuquentCapturesKingship(move, maxingPlayer),
+                    RemoveOposingPiece(whitePieces, move), RemoveAndAddEmptySquares(emptySquares, move)));
+            }
+            return moves;
         }
 
         private static List<Move> BlackStandardMoves(bool maxingPlayer, ulong blackPieces, ulong whitePieces, ulong kings)
@@ -348,16 +372,160 @@ namespace CheckersLogic
             List<Move> moves = new List<Move>();
             if (king)
             {
-                if ((((( 1UL << capture.To + 9) & oposingPieces) << 9) & emptySquares) != 0)
+                if (((((1UL << capture.To + 9) & oposingPieces) << 9) & emptySquares) != 0)
                 {
                     Move submove = capture;
                     submove.PiecesCaptured.Add(submove.To + 9);
                     submove.To += 18;
 
+                    moves.AddRange(SubsequentCaptures
+                        (submove, maxingPlayer, king, RemoveOposingPiece(oposingPieces, submove), RemoveAndAddEmptySquares(emptySquares, submove)));
+                }
+                if (((((1UL << capture.To + 7) & oposingPieces) << 7) & emptySquares) != 0)
+                {
+                    Move submove = capture;
+                    submove.PiecesCaptured.Add(submove.To + 7);
+                    submove.To += 14;
+
+                    moves.AddRange(SubsequentCaptures
+                        (submove, maxingPlayer, king, RemoveOposingPiece(oposingPieces, submove), RemoveAndAddEmptySquares(emptySquares, submove)));
+                }
+                if (((((1UL << capture.To - 7) & oposingPieces) >> 7) & emptySquares) != 0)
+                {
+                    Move submove = capture;
+                    submove.PiecesCaptured.Add(submove.To - 7);
+                    submove.To -= 14;
+
+                    moves.AddRange(SubsequentCaptures
+                        (submove, maxingPlayer, king, RemoveOposingPiece(oposingPieces, submove), RemoveAndAddEmptySquares(emptySquares, submove)));
+                }
+                if (((((1UL << capture.To - 9) & oposingPieces) >> 9) & emptySquares) != 0)
+                {
+                    Move submove = capture;
+                    submove.PiecesCaptured.Add(submove.To - 9);
+                    submove.To -= 18;
+
+                    moves.AddRange(SubsequentCaptures
+                        (submove, maxingPlayer, king, RemoveOposingPiece(oposingPieces, submove), RemoveAndAddEmptySquares(emptySquares, submove)));
                 }
             }
 
+            else if (maxingPlayer)
+            {
+                if (((((1UL << capture.To + 9) & oposingPieces) << 9) & emptySquares) != 0)
+                {
+                    Move submove = capture;
+                    submove.PiecesCaptured.Add(submove.To + 9);
+                    submove.To += 18;
+
+                    moves.AddRange(SubsequentCaptures
+                        (submove, maxingPlayer, SubsuquentCapturesKingship(submove, maxingPlayer), RemoveOposingPiece(oposingPieces, submove), RemoveAndAddEmptySquares(emptySquares, submove)));
+                }
+                if (((((1UL << capture.To + 7) & oposingPieces) << 7) & emptySquares) != 0)
+                {
+                    Move submove = capture;
+                    submove.PiecesCaptured.Add(submove.To + 7);
+                    submove.To += 14;
+
+                    moves.AddRange(SubsequentCaptures
+                        (submove, maxingPlayer, SubsuquentCapturesKingship(submove, maxingPlayer), RemoveOposingPiece(oposingPieces, submove), RemoveAndAddEmptySquares(emptySquares, submove)));
+                }
+            }
+            else
+            {
+                if (((((1UL << capture.To - 7) & oposingPieces) >> 7) & emptySquares) != 0)
+                {
+                    Move submove = capture;
+                    submove.PiecesCaptured.Add(submove.To - 7);
+                    submove.To -= 14;
+
+                    moves.AddRange(SubsequentCaptures
+                        (submove, maxingPlayer, SubsuquentCapturesKingship(submove, maxingPlayer), RemoveOposingPiece(oposingPieces, submove), RemoveAndAddEmptySquares(emptySquares, submove)));
+                }
+                if (((((1UL << capture.To - 9) & oposingPieces) >> 9) & emptySquares) != 0)
+                {
+                    Move submove = capture;
+                    submove.PiecesCaptured.Add(submove.To - 9);
+                    submove.To -= 18;
+
+                    moves.AddRange(SubsequentCaptures
+                        (submove, maxingPlayer, SubsuquentCapturesKingship(submove, maxingPlayer), RemoveOposingPiece(oposingPieces, submove), RemoveAndAddEmptySquares(emptySquares, submove)));
+                }
+            }
+            if (moves.Count == 0)
+            {
+                moves.Add(capture);
+            }
             return moves;
+        }
+
+        private static ulong RemoveOposingPiece(ulong oposingPieces, Move move)
+        {
+            ulong capturedPiece = 1UL << move.PiecesCaptured.Last();
+
+            return oposingPieces - capturedPiece;
+        }
+
+        private static ulong RemoveAndAddEmptySquares(ulong emptySquares, Move move)
+        {
+            ulong capturedPiece = 1UL << move.PiecesCaptured.Last();
+            ulong vacantSquare = 1UL << (move.PiecesCaptured.Last() - (move.To - move.PiecesCaptured.Last()));
+            ulong removedSquare = 1UL << move.To;   
+            emptySquares += vacantSquare;
+            emptySquares += capturedPiece;
+            emptySquares -= removedSquare;
+
+            return emptySquares;
+        }
+
+        private static bool SubsuquentCapturesKingship(Move move, bool maxingPlayer)
+        {
+            if ((move.To % 8 > 6) & (maxingPlayer)) { return true; }
+            if ((move.To % 8 < 1) & (!maxingPlayer)) { return true; }
+            return false;
+        }
+
+        private static int Evaluation(ulong whitePieces, ulong blackPieces, ulong kings)
+        {
+            int differenceOfStandartPieces = 0;
+            int differenceOfKings = 0;
+
+            ulong whiteKings = whitePieces & kings;
+            ulong whiteStandartPieces = whitePieces - whiteKings;
+
+            ulong blackKings = blackPieces & kings;
+            ulong blackStandartPieces = blackPieces - blackKings;
+
+            int evaluation = 0;
+
+            for (int i = 0; i < 64; i++)
+            {
+                if ((whiteStandartPieces & 1) == 1)
+                {  
+                    differenceOfStandartPieces++; 
+
+                }
+                if((blackStandartPieces & 1) == 1) 
+                {
+                    differenceOfStandartPieces--; 
+                }
+                if ((blackKings & 1) == 1)
+                {
+                    differenceOfKings++;
+                }
+                if ((whiteKings & 1) == 1)
+                {
+                    differenceOfKings--;
+                }
+                whitePieces >>= 1; blackPieces >>= 1; whiteKings >>= 1; blackKings >>= 1;
+            }
+            return evaluation;
+        }
+
+        private static bool IsSafePiece(int position)
+        {
+ 
+            return false;
         }
 
     }
