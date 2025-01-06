@@ -49,7 +49,7 @@ namespace Checkers
             InitializeHighlights();
             boardIsInverted = false;
             engineCalculationInProgress = false;
-            engineDepth = 1;
+            engineDepth = 10;
         }
 
 
@@ -85,7 +85,7 @@ namespace Checkers
         
 
 
-        private void DrawBoard(Board board)
+        internal void DrawBoard(Board board)
         { 
             if (!boardIsInverted)
                 for (int i = 0; i < 8;i++)
@@ -283,6 +283,9 @@ namespace Checkers
         private void GameReset()
         {
             game = new Game();
+            mode = Mode.PvP;
+            PvpMode.Background = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#4CBB17"));
+            PveMode.Background = Brushes.Red;
             HideHighlights();
             HideWinner();
             DrawBoard(game.Board);
@@ -329,26 +332,47 @@ namespace Checkers
             mode = Mode.PvP;
             PvpMode.Background = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#4CBB17"));
             PveMode.Background = Brushes.Red;
-            EveMode.Background = Brushes.Red;
 
         }
 
         private void PveMode_Click(object sender, RoutedEventArgs e)
         {
-            mode = Mode.PvE;
-            PveMode.Background = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#4CBB17"));
-            PvpMode.Background = Brushes.Red;
-            EveMode.Background = Brushes.Red;
-            game.MakeEngineMove(engineDepth);
-            DrawBoard(game.Board);
+            if (mode == Mode.PvP)
+            {
+                HideHighlights();
+                mode = Mode.PvE;
+                PveMode.Background = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#4CBB17"));
+                PvpMode.Background = Brushes.Red;
+                game.MakeEngineMove(engineDepth);
+                DrawBoard(game.Board);
+            }
         }
 
-        private void EveMode_Click(object sender, RoutedEventArgs e)
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            mode = Mode.EvE;
-            EveMode.Background = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#4CBB17"));
-            PveMode.Background = Brushes.Red;
-            PvpMode.Background = Brushes.Red;
+            TextBox textBox = sender as TextBox;
+            string newText = textBox.Text.Insert(textBox.CaretIndex, e.Text);
+
+            e.Handled = !IsValidInput(newText);
+        }
+
+        private bool IsValidInput(string input)
+        {
+            if (int.TryParse(input, out int value))
+            {
+                return value >= 1 && value <= 20;
+            }
+            return false;
+        }
+
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            if (int.TryParse(textBox.Text, out int value) && value >= 1 && value <= 20)
+            {
+                engineDepth = value; 
+            }
         }
     }
 }

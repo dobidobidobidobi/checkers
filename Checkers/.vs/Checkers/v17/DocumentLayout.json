@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -75,8 +75,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-01T21:14:28.657Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -85,6 +84,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Document",
@@ -96,8 +99,7 @@
               "RelativeToolTip": "CheckersLogic\\Piece.cs",
               "ViewState": "AgIAALEAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T18:46:30.515Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T18:46:30.515Z"
             },
             {
               "$type": "Document",
@@ -131,7 +133,7 @@
               "RelativeDocumentMoniker": "CheckersLogic\\FindBestMove.cs",
               "ToolTip": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\FindBestMove.cs",
               "RelativeToolTip": "CheckersLogic\\FindBestMove.cs",
-              "ViewState": "AgIAAOEBAAAAAAAAAAAEwOcBAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAPgBAAAAAAAAAAAWwOcBAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T14:08:36.163Z",
               "EditorCaption": ""
@@ -170,8 +172,7 @@
               "RelativeToolTip": "CheckersLogic\\Game.cs",
               "ViewState": "AgIAAJYAAAAAAAAAAAAswJ0AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T10:46:51.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T10:46:51.06Z"
             },
             {
               "$type": "Document",

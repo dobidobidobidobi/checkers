@@ -17,18 +17,111 @@ namespace CheckersLogic
             ulong whitePieces = FindWhitePieces(game.Board);
             ulong kings = FindKings(game.Board);
 
-            return Minimax(blackPieces, whitePieces, kings, depth, maxingPlayer);
+            double eval = maxingPlayer ? -10000000 : 10000000;
+
+            List<Move> moves = GetMoves(maxingPlayer, blackPieces, whitePieces, kings);
+            
+            Move bestMove = new Move();
+
+            double alpha = -1000000;
+            double beta = 1000000;
+
+            foreach (Move move in moves)
+            {
+                double moveEval = MakeAMove(blackPieces, whitePieces, kings, depth, maxingPlayer, move, alpha, beta);
+
+                if (((moveEval > eval) && maxingPlayer) || ((moveEval < eval) && !maxingPlayer))
+                {
+                    eval = moveEval;
+                    bestMove = move;
+                }
+
+                if (maxingPlayer) { alpha = eval; }
+                else { beta = eval; }
+          
+            }
+
+            return bestMove;
+
         }
 
-        private static Move Minimax(ulong blackPieces, ulong whitePieces, ulong kings, int depth, bool maxingPlayer)
+        private static double MakeAMove
+            (ulong blackPieces, ulong whitePieces, ulong kings, int depth, bool maxingPlayer, Move move, double alpha, double beta)
+        {
+            foreach (int pos in move.PiecesCaptured)
+            {
+                ulong position = 1UL << pos;
+                if ((kings & position) != 0) { kings -= position; }
+                if (maxingPlayer) {blackPieces -= position; }
+                else {whitePieces -= position; }
+            }
+
+            if (maxingPlayer)
+            {
+                whitePieces -= 1UL << move.From;
+                whitePieces += 1UL << move.To;
+            }
+            else
+            {
+                blackPieces -= 1UL << move.From;
+                blackPieces += 1UL << move.To;
+            }
+
+            return Minimax(blackPieces, whitePieces, kings, depth, !maxingPlayer, alpha, beta);
+        }
+
+        private static double Minimax
+            (ulong blackPieces, ulong whitePieces, ulong kings, int depth, bool maxingPlayer, double alpha, double beta)
         {
             List<Move> moves = GetMoves(maxingPlayer, blackPieces, whitePieces, kings);
+            double best;
+            if ((depth == 0) || (CheckWin(blackPieces, whitePieces, moves)))
+            {
+                return Evaluation(whitePieces, blackPieces, kings);
+            }
 
-            var random = new Random();
-            int moveIndex = random.Next(moves.Count);
 
-            return moves[moveIndex];
+            if (maxingPlayer)
+            {
+                best = -100000;
+
+                foreach (Move move in moves)
+                {
+                    double eval = MakeAMove(blackPieces, whitePieces, kings, depth - 1, maxingPlayer, move, alpha, beta);
+                    best = Math.Max(best, eval);
+
+                    if (eval > beta) { break; }
+                    alpha = Math.Max(alpha, best);
+                }
+            }
+
+            else
+            {
+                best = 100000;
+                foreach (Move move in moves)
+                {
+                    double eval = MakeAMove(blackPieces, whitePieces, kings, depth - 1, maxingPlayer, move, alpha, beta);
+                    best = Math.Min(best, eval);
+
+                    if (eval > alpha) { break; }
+                    beta = Math.Min(beta, best);
+
+                }
+            }
+
+
+            return best;
         }
+
+        private static bool CheckWin(ulong blackPieces, ulong whitePieces, List<Move> moves)
+        {
+            if (blackPieces == 0) return true;
+            if (whitePieces == 0) return true;
+            if (moves.Count == 0) return true;
+            
+            return false;
+        }
+
 
         private static bool CheckMaxingPlayer(Game game)
         {
@@ -485,48 +578,165 @@ namespace CheckersLogic
             return false;
         }
 
-        private static int Evaluation(ulong whitePieces, ulong blackPieces, ulong kings)
+        private const double kingValue = 7;
+        private const double pieceValue = 4.5;
+        private const double safeKing = 0.4;
+        private const double safePiece = 0.22;
+        private const double centerControl = 0.02;
+        private const double promotionPossibility = 0.0045;
+        private const double pieceRatioConstant = 0.02;
+
+        private const int EndgamePieceThreshold = 8;
+
+        private static double Evaluation(ulong whitePieces, ulong blackPieces, ulong kings)
         {
-            int differenceOfStandartPieces = 0;
-            int differenceOfKings = 0;
+            double whitePieceValue = 0;
+            double blackPieceValue = 0;
 
             ulong whiteKings = whitePieces & kings;
             ulong whiteStandartPieces = whitePieces - whiteKings;
 
             ulong blackKings = blackPieces & kings;
             ulong blackStandartPieces = blackPieces - blackKings;
+            
 
-            int evaluation = 0;
+            double evaluation = 0;
+
+            bool IsEndgame = Endgame(whitePieces, blackPieces);
+
 
             for (int i = 0; i < 64; i++)
             {
-                if ((whiteStandartPieces & 1) == 1)
-                {  
-                    differenceOfStandartPieces++; 
+                ulong currentPosition = 1UL << i;
+
+                if ((whiteStandartPieces & currentPosition) != 0)
+                {
+
+                    if (!IsEndgame)
+                    { 
+                        evaluation += IsSafePiece(i) + CenterControl(i) + PromotionPossibility(i, true); 
+                    }
+
+                    else
+                    {
+                        evaluation += PromotionPossibility(i, true);
+                    }
+                    whitePieceValue += pieceValue;
 
                 }
-                if((blackStandartPieces & 1) == 1) 
+                else if ((blackStandartPieces & currentPosition) != 0)
                 {
-                    differenceOfStandartPieces--; 
+                    if (!IsEndgame)
+                    {
+                        evaluation -= +IsSafePiece(i) + CenterControl(i) + PromotionPossibility(i, false);
+                    }
+
+                    else
+                    {
+                        evaluation -= PromotionPossibility(i, false);
+                    }
+
+                    blackPieceValue += pieceValue;
+
                 }
-                if ((blackKings & 1) == 1)
+                else if ((blackKings & currentPosition) != 0)
                 {
-                    differenceOfKings++;
+                    if (!IsEndgame)
+                    {
+                        evaluation -= IsSafeKing(i) + CenterControl(i);
+                    }
+
+                    blackPieceValue += kingValue;
                 }
-                if ((whiteKings & 1) == 1)
+                else if ((whiteKings & currentPosition) != 0)
                 {
-                    differenceOfKings--;
+                    if (!IsEndgame)
+                    {
+                        evaluation += IsSafeKing(i) + CenterControl(i);
+                    }
+
+                    whitePieceValue += kingValue;
                 }
-                whitePieces >>= 1; blackPieces >>= 1; whiteKings >>= 1; blackKings >>= 1;
+
             }
+            evaluation += whitePieceValue - blackPieceValue;
+            evaluation += PieceRatio(whitePieceValue, blackPieceValue);
+
             return evaluation;
         }
 
-        private static bool IsSafePiece(int position)
+        public static bool Endgame(ulong whitePieces, ulong blackPieces)
         {
- 
-            return false;
+
+            int Count = CountBits(whitePieces | blackPieces);
+            return Count <= EndgamePieceThreshold;
         }
+
+        private static int CountBits(ulong bitboard)
+        {
+            int count = 0;
+            while (bitboard != 0)
+            {
+                count += (int)(bitboard & 1); 
+                bitboard >>= 1; 
+            }
+            return count;
+        }
+
+        private static double IsSafePiece(int position)
+        {
+            if ((position% 8 == 0) || (position % 8 == 7))
+            {
+                return safePiece;
+            }
+
+            return 0;
+        }
+        private static double IsSafeKing(int position)
+        {
+            if ((position % 8 == 0) || (position % 8 == 7))
+            {
+                return kingValue;
+            }
+
+            return 0;
+        }
+
+        private static double CenterControl(int position)
+        {
+            int row = (int) (position / 8);
+            int column = position % 8;
+
+            return (centerControl * (Math.Pow((3.5 - Math.Abs(3.5 - row)) * (3.5 - Math.Abs(3.5 - column)), 1.25)));
+        }
+
+        private static double PromotionPossibility(int position, bool white)
+        {
+            int row = (int)(position / 8);
+
+            return (promotionPossibility * (Math.Pow(white ? row : (7 - row), 2)));
+        }
+
+        //aby se snažil tradit v početní převaze
+        private static double PieceRatio(double whitePieceValue, double blackPieceValue)
+        {
+            double pieceRatio = whitePieceValue / blackPieceValue;
+            if ((whitePieceValue != 0) & (blackPieceValue != 0))
+            {
+                if (pieceRatio > 1)
+                {
+                    return Math.Pow(pieceRatio, 2) * pieceRatioConstant;
+                }
+                if (pieceRatio < 1)
+                {
+                    pieceRatio = blackPieceValue / whitePieceValue;
+                    return Math.Pow(pieceRatio, 2) * pieceRatioConstant * (-1);
+                }
+            }
+            return 0;
+        }
+
+
 
     }
 }   

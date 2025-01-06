@@ -32,3 +32,14 @@ C:\program1\checkers\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.dll
 C:\program1\checkers\Checkers\CheckersLogic\obj\Debug\net8.0\refint\CheckersLogic.dll
 C:\program1\checkers\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.pdb
 C:\program1\checkers\Checkers\CheckersLogic\obj\Debug\net8.0\ref\CheckersLogic.dll
+E:\Checkers\CheckersLogic\bin\Debug\net8.0\CheckersLogic.deps.json
+E:\Checkers\CheckersLogic\bin\Debug\net8.0\CheckersLogic.dll
+E:\Checkers\CheckersLogic\bin\Debug\net8.0\CheckersLogic.pdb
+E:\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.GeneratedMSBuildEditorConfig.editorconfig
+E:\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.AssemblyInfoInputs.cache
+E:\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.AssemblyInfo.cs
+E:\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.csproj.CoreCompileInputs.cache
+E:\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.dll
+E:\Checkers\CheckersLogic\obj\Debug\net8.0\refint\CheckersLogic.dll
+E:\Checkers\CheckersLogic\obj\Debug\net8.0\CheckersLogic.pdb
+E:\Checkers\CheckersLogic\obj\Debug\net8.0\ref\CheckersLogic.dll

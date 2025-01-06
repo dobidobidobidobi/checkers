@@ -71,10 +71,30 @@
                      Margin="8" Click="PveMode_Click">PvE Mode
             </Button>
 
-            <Button x:Name="EveMode" Grid.Row="4" MinHeight="70" MaxHeight="700"
-                    Background="Red" Foreground="Beige"
-                     Margin="8" Click="EveMode_Click">EvE Mode
-            </Button>
+            <Grid Grid.Row="4" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Depth"
+                           Foreground="Beige"
+                           FontSize="15"
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"
+                           Margin="2"
+                           Grid.Row="0"/>
+                
+
+                <TextBox VerticalAlignment="Center" MinHeight="35" 
+                         FontSize="20" Background="#333333"
+                         Margin="4" Foreground="Beige"
+                         HorizontalAlignment="Stretch" 
+                         Grid.Row="1" LostFocus="TextBox_LostFocus"
+                         Text="10" TextAlignment="Center" VerticalContentAlignment="Center"
+                         PreviewTextInput="TextBox_PreviewTextInput"/>
+            </Grid>
+
 
         </Grid>
 

@@ -1,4 +1,4 @@
 ﻿namespace CheckersLogic
 {
-    public enum Color { White, Black, None }
+    public enum Color { White, Black }
 }

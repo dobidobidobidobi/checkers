@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Checkers
 {
-    public enum Mode {PvP, PvE, EvE};    
+    public enum Mode { PvP, PvE };    
 }

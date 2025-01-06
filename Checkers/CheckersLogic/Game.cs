@@ -1,11 +1,11 @@
-﻿namespace CheckersLogic
+﻿using System.Threading;
+namespace CheckersLogic
 {
     class Game
     {
         public Board Board { get; private set; }
         public Player[] Players { get; private set; }
         public Player CurrentPlayer { get; private set; }
-        public bool IsActive { get; private set; }
 
         public List<Piece> MoveablePieces { get; private set; }
 
@@ -18,7 +18,7 @@
             Players = new Player[] { new Player(Color.White),new Player(Color.Black) };
             CurrentPlayer = Players[0];
             Board.InitialBoard(Players[0], Players[1]);
-            IsActive = true;
+
 
             MoveablePieces = PiecesThatCanMove();
             Winner = null;          
@@ -42,7 +42,6 @@
             Board = new Board();
             Start();
             CurrentPlayer = Players[0];
-            IsActive = true;
         }
 
         public List<Piece> PiecesThatCanMove()
@@ -142,11 +141,11 @@
         public void MakeEngineMove(int depth)
         {
             Move move = FindBestMove.Minimax(this, depth);
-            
+
             foreach (int pos in move.PiecesCaptured)
             {
                 Position position = BitboardToPosition(pos);
-                Capture(Board.Grid[position.Row, position.Column].OccupiedBy);
+                Capture(Board.Grid[position.Row, position.Column].OccupiedBy);           
             }
             Position from = BitboardToPosition(move.From);
             Position to = BitboardToPosition(move.To);
@@ -166,6 +165,19 @@
             int column = 7 - (bit % 8);
 
             return new Position(row, column);
+        }
+
+        private Position FindPositionAfterCapture(Position startingPosition, Position capture)
+        {
+            int startRow = startingPosition.Row;
+            int startColumn = startingPosition.Column;
+            int captureRow = capture.Row;
+            int captureColumn = capture.Column;
+
+            int endRow = captureRow + (captureRow -  startRow);
+            int endColumn = captureColumn + (captureColumn - startColumn);
+
+            return new Position(endRow, endColumn);
         }
     }
 }
