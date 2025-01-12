@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\program1\\checkers\\Checkers\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\findbestmove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\findbestmove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|c:\\program1\\checkers\\checkers\\checkers\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|solutionrelative:checkers\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\findbestmove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\findbestmove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -49,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|c:\\program1\\checkers\\checkers\\checkerslogic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CD54B6B2-E46A-4080-963A-832F79291A66}|CheckersLogic\\CheckersLogic.csproj|solutionrelative:checkerslogic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|c:\\program1\\checkers\\checkers\\checkers\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9A87FFB-C13D-44C5-ADB5-5821E3DD9020}|Checkers\\Checkers.csproj|solutionrelative:checkers\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,11 +62,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Player.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Player.cs",
@@ -91,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Piece.cs",
               "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Piece.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Piece.cs",
@@ -103,19 +103,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\Checkers\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Checkers\\MainWindow.xaml.cs",
               "ToolTip": "C:\\program1\\checkers\\Checkers\\Checkers\\MainWindow.xaml.cs",
               "RelativeToolTip": "Checkers\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAEcBAAAAAAAAAAAAwFYBAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAEgBAAAAAAAAAAAuwGEBAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T21:59:08.595Z"
+              "WhenOpened": "2024-12-06T21:59:08.595Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Zprovozneni Assembly.cs",
               "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Zprovozneni Assembly.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Zprovozneni Assembly.cs",
@@ -127,20 +128,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "FindBestMove.cs",
               "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\FindBestMove.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\FindBestMove.cs",
               "ToolTip": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\FindBestMove.cs",
               "RelativeToolTip": "CheckersLogic\\FindBestMove.cs",
-              "ViewState": "AgIAAPgBAAAAAAAAAAAWwOcBAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAMwOcBAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T14:08:36.163Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T14:08:36.163Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Square.cs",
               "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Square.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Square.cs",
@@ -152,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Position.cs",
               "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Position.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Position.cs",
@@ -164,19 +164,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Game.cs",
               "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Game.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Game.cs",
               "ToolTip": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Game.cs",
               "RelativeToolTip": "CheckersLogic\\Game.cs",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAswJ0AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T10:46:51.06Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Move.cs",
               "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Move.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Move.cs",
@@ -188,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Color.cs",
               "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Color.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Color.cs",
@@ -200,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\Checkers\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "Checkers\\AssemblyInfo.cs",
@@ -212,7 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Board.cs",
               "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\CheckersLogic\\Board.cs",
               "RelativeDocumentMoniker": "CheckersLogic\\Board.cs",
@@ -224,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\program1\\checkers\\Checkers\\Checkers\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Checkers\\MainWindow.xaml",
@@ -232,6 +232,10 @@
               "RelativeToolTip": "Checkers\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-01T20:51:43.297Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }

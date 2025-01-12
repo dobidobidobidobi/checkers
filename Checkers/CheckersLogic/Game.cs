@@ -16,7 +16,7 @@ namespace CheckersLogic
             Board = new Board();
             
             Players = new Player[] { new Player(Color.White),new Player(Color.Black) };
-            CurrentPlayer = Players[0];
+            CurrentPlayer = Players[1];
             Board.InitialBoard(Players[0], Players[1]);
 
 

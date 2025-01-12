@@ -41,13 +41,13 @@ namespace Checkers
 
         {
             InitializeComponent();
+            boardIsInverted = true;
             mode = Mode.PvP;
             InitializeBoard();
             game = new Game();
             DrawBoard(game.Board);
             highlight = GetHighlight();
             InitializeHighlights();
-            boardIsInverted = false;
             engineCalculationInProgress = false;
             engineDepth = 10;
         }
@@ -214,8 +214,9 @@ namespace Checkers
 
         }
 
-        private void PveAction(Position positionClicked)
+        private async void PveAction(Position positionClicked)
         {
+            if (engineCalculationInProgress) { return; }
             HideHighlights();
             if (!engineCalculationInProgress)
             {
@@ -228,8 +229,10 @@ namespace Checkers
                     pieceSelected = null;
                     if ((game.Winner == null) && (currentPlayer != game.CurrentPlayer))
                     {
-                        game.MakeEngineMove(engineDepth);
+                        engineCalculationInProgress = true;
+                        await Task.Run(() => game.MakeEngineMove(engineDepth));
                         DrawBoard(game.Board);
+                        engineCalculationInProgress = false;
                     }
 
                 }
@@ -329,13 +332,15 @@ namespace Checkers
 
         private void PvpMode_Click(object sender, RoutedEventArgs e)
         {
+            if (engineCalculationInProgress) { return; }
+            
             mode = Mode.PvP;
             PvpMode.Background = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#4CBB17"));
             PveMode.Background = Brushes.Red;
 
         }
 
-        private void PveMode_Click(object sender, RoutedEventArgs e)
+        private async void PveMode_Click(object sender, RoutedEventArgs e)
         {
             if (mode == Mode.PvP)
             {
@@ -343,8 +348,10 @@ namespace Checkers
                 mode = Mode.PvE;
                 PveMode.Background = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#4CBB17"));
                 PvpMode.Background = Brushes.Red;
-                game.MakeEngineMove(engineDepth);
+                engineCalculationInProgress = true;
+                await Task.Run(() => game.MakeEngineMove(engineDepth));
                 DrawBoard(game.Board);
+                engineCalculationInProgress = false;
             }
         }
 
