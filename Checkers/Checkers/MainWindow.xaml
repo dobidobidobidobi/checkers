@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Checkers"
         mc:Ignorable="d"
-        Title="MainWindow" Width="800" SizeToContent="Height"
+        Title="Checkers" Width="800" SizeToContent="Height"
         Background="#181818"
         x:Name="Checkers"
         SizeChanged="MainWindow_SizeChanged">
